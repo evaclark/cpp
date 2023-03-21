@@ -4,13 +4,6 @@
 # include <iostream>
 # include <string>
 
-class PhoneBook {
-
-	public:
-		Contact cont[8];
-		int		n;
-};
-
 class Contact {
 
 	public:
@@ -20,6 +13,13 @@ class Contact {
 		std::string	phone_num;
 		std::string	dark_secret;
 
+};
+
+class PhoneBook {
+
+	public:
+		Contact cont[8];
+		int		n;
 };
 
 #endif

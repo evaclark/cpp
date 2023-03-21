@@ -1,9 +1,9 @@
-NAME = megaphone
+NAME = PhoneBook
 
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
 all :
-	c++ $(FLAGS) megaphone.cpp -o $(NAME)
+	c++ $(FLAGS) phonebook.cpp -o $(NAME)
 
 clean :
 	rm -rf $(NAME)
