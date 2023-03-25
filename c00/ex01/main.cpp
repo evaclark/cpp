@@ -11,7 +11,13 @@ void ft_resize(std::string info)
 		std::cout << info << ".";
 	}
 	else
+	{
+		while (info.size() < 10)
+		{
+			info.append(" ");
+		}
 		std::cout << info;
+	}
 }
 
 int main()
@@ -19,15 +25,10 @@ int main()
 	PhoneBook phone;
 	Contact	contact;
 	int i;
-	int	x;
+	int x;
 	std::string	input;
-	std::string	f_n;
-	std::string	l_n;
-	std::string	n_n;
-	std::string	p_n;
-	std::string	d_s;
 
-	phone.n = 0;
+	phone.set_n(0);
 
 	while (1)
 	{
@@ -36,58 +37,52 @@ int main()
 
 		if (input == "ADD")
 		{
+			std::cin.clear();
+			std::cin.ignore(1000, '\n');
+			
 			std::cout << "first name: ";
-			std::getline (std::cin, f_n);
-			while (f_n.size()< 10)
-			{
-				f_n.append(" ");
-			}
-			contact.setfirst_name(f_n);
+			std::getline (std::cin, input);
+			contact.setfirst_name(input);
 			
 			std::cout << "last name: ";
-			std::getline (std::cin, l_n);
-			while (l_n.size()< 10)
-			{
-				l_n.append(" ");
-			}
-			contact.setlast_name(l_n);
+			std::getline (std::cin, input);
+			contact.setlast_name(input);
 			
 			std::cout << "nickname: ";
-			std::getline (std::cin, n_n);
-			while (n_n.size()< 10)
-			{
-				n_n.append(" ");
-			}
-			contact.setnickname(n_n);
+			std::getline (std::cin, input);
+			contact.setnickname(input);
 			
 			std::cout << "phone number: ";
-			std::getline (std::cin, p_n);
-			while (p_n.size()< 10)
-			{
-				p_n.append(" ");
-			}
-			contact.setphone_num(p_n);
+			std::getline (std::cin, input);
+			contact.setphone_num(input);
 			
 			std::cout << "darkest secret: ";
-			std::getline (std::cin, d_s);
-			while (d_s.size()< 10)
+			std::getline (std::cin, input);
+			contact.setdark_secret(input);
+			if (phone.get_n() == 8)
 			{
-				d_s.append(" ");
+				for (i = 0; i < 7; i++)
+				{
+					phone.cont[i] = phone.cont[i + i];
+				}
+				phone.cont[7] = contact;
 			}
-			contact.setdark_secret(d_s);
-			if (phone.n < 8)
+			else
 			{
-				phone.n++;
+				{
+					phone.cont[phone.get_n()] = contact;
+					phone.set_n(phone.get_n() + 1);
+				}
 			}
 		}
 		else if (input == "SEARCH")
 		{
-			for (i = 0; i < phone.n; i++)
+			for (i = 0; i < phone.get_n(); i++)
 			{	
 				std::cout << i + 1;
-				ft_resize(phone.cont[i].getfirst_name);
-				ft_resize(phone.cont[i].getlast_name);
-				ft_resize(phone.cont[i].getnickname);
+				ft_resize(phone.cont[i].getfirst_name());
+				ft_resize(phone.cont[i].getlast_name());
+				ft_resize(phone.cont[i].getnickname());
 				std::cout << "\n";
 			}
 			std::cout << "Input index number:" << std::endl;
@@ -95,14 +90,14 @@ int main()
 			if (x)
 			{
 				x = x - 1;
-				if (x < -1 || x > phone.n)
+				if (x < -1 || x > phone.get_n())
 				{
 					std::cout << "Invalid input" << std::endl;
 				}
-				else if (x < phone.n)
+				else if (x < phone.get_n())
 				{
-					std::cout << "\nContact:" << "\n" << phone.cont[x].getfirst_name << "\n" << phone.cont[x].getlast_name << 
-						"\n" << phone.cont[x].getnickname << "\n" << phone.cont[x].getphone_num << "\n" << phone.cont[x].getdark_secret << "\n" << std::endl;
+					std::cout << "\nContact:" << "\n" << phone.cont[x].getfirst_name() << "\n" << phone.cont[x].getlast_name() << 
+						"\n" << phone.cont[x].getnickname() << "\n" << phone.cont[x].getphone_num() << "\n" << phone.cont[x].getdark_secret() << "\n" << std::endl;
 				}
 			}
 			else

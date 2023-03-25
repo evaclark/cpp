@@ -5,9 +5,13 @@
 
 class PhoneBook {
 
+	private:
+		int		n;
+	
 	public:
 		Contact cont[8];
-		int		n;
+		int	get_n();
+		void	set_n(int i);
 	
 };
 
