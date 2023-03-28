@@ -5,42 +5,42 @@
 //Getter functions to obtain private variables
 std::string Contact::getfirst_name()
 {
-	return (this->first_name);
+	return (first_name);
 }
 std::string Contact::getlast_name()
 {
-	return (this->last_name);
+	return (last_name);
 }
 std::string Contact::getnickname()
 {
-	return (this->nickname);
+	return (nickname);
 }
 std::string Contact::getphone_num()
 {
-	return (this->phone_num);
+	return (phone_num);
 }
 std::string Contact::getdark_secret()
 {
-	return (this->dark_secret);
+	return (dark_secret);
 }
 //Setter functions to assign value to private variables
 void	Contact::setfirst_name(std::string const name)
 {
-	this->first_name = name;
+	first_name = name;
 }
 void	Contact::setlast_name(std::string const name)
 {
-	this->last_name = name;
+	last_name = name;
 }
 void	Contact::setnickname(std::string const name)
 {
-	this->nickname = name;
+	nickname = name;
 }
 void	Contact::setphone_num(std::string const no)
 {
-	this->phone_num = no;
+	phone_num = no;
 }
 void	Contact::setdark_secret(std::string const secret)
 {
-	this->dark_secret = secret;
+	dark_secret = secret;
 }

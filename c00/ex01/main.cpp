@@ -40,39 +40,33 @@ int main()
 			std::cin.clear();
 			std::cin.ignore(1000, '\n');
 			
+			std::cout << "one word inputs only pls" << std::endl;
+			for (i = 7; i >= 0; i--)
+			{
+				phone.cont[i] = phone.cont[i - 1];
+			}
 			std::cout << "first name: ";
 			std::getline (std::cin, input);
-			contact.setfirst_name(input);
+			phone.cont[0].setfirst_name(input);
 			
 			std::cout << "last name: ";
 			std::getline (std::cin, input);
-			contact.setlast_name(input);
+			phone.cont[0].setlast_name(input);
 			
 			std::cout << "nickname: ";
 			std::getline (std::cin, input);
-			contact.setnickname(input);
+			phone.cont[0].setnickname(input);
 			
 			std::cout << "phone number: ";
 			std::getline (std::cin, input);
-			contact.setphone_num(input);
+			phone.cont[0].setphone_num(input);
 			
 			std::cout << "darkest secret: ";
 			std::getline (std::cin, input);
-			contact.setdark_secret(input);
-			if (phone.get_n() == 8)
+			phone.cont[0].setdark_secret(input);
+			if (phone.get_n() < 8)
 			{
-				for (i = 0; i < 7; i++)
-				{
-					phone.cont[i] = phone.cont[i + i];
-				}
-				phone.cont[7] = contact;
-			}
-			else
-			{
-				{
-					phone.cont[phone.get_n()] = contact;
-					phone.set_n(phone.get_n() + 1);
-				}
+				phone.set_n(phone.get_n() + 1);
 			}
 		}
 		else if (input == "SEARCH")
