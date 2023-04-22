@@ -41,7 +41,7 @@ int main()
 			std::cin.ignore(1000, '\n');
 			
 			std::cout << "one word inputs only pls" << std::endl;
-			for (i = 7; i >= 0; i--)
+			for (i = 7; i > 0; i--)
 			{
 				phone.cont[i] = phone.cont[i - 1];
 			}
