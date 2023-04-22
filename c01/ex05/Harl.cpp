@@ -22,5 +22,21 @@ void	Harl::error(void)
 
 void	Harl::complain(std::string level)
 {
-
+	// pointer to member function allows access to class objects - example here creates
+	// an array that provides access to the functions in the Harl class
+	// this allows the complain function to easily choose which function 
+	// to run when selected.
+	void	(Harl::*selector[4]) (void) ={
+		&Harl::debug, &Harl::info, &Harl::warning, &Harl::error
+	};
+	std::string	options[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == options[i])
+		{
+			(this->*selector[i])();
+			return;
+		}
+	}
+	std::cout << "nothing to complain about we're chilling B)" << std::endl;
 }
