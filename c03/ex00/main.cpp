@@ -3,7 +3,6 @@
 
 int main ()
 {
-    
 	ClapTrap	clappy("steve");
 	ClapTrap	clappers = clappy;
 
