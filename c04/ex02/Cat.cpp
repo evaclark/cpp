@@ -7,12 +7,11 @@ Cat::Cat()
 	this->brain = new Brain();
 }
 
-Cat::Cat(const Cat &c): brain(nullptr)
+Cat::Cat(const Cat &c): brain(new Brain())
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 	setType(c.getType());
-	if (c.brain)
-		this->brain = new Brain(*c.brain);
+	*(this->brain) = *(c.brain);
 }
 
 Cat::~Cat()

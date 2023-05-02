@@ -7,6 +7,7 @@ Dog::Dog()
 	this->brain = new Brain();
 }
 
+//using brain(new Brain()) to initialise the new brain for the copy
 Dog::Dog(const Dog &d): brain(nullptr)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
