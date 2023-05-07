@@ -39,4 +39,5 @@ int main()
 	std::cout << bigboy.getBrain()->getIdea(1) << std::endl;
 	
 	return 0;
+
 }
